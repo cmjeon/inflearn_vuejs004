@@ -1,17 +1,17 @@
 <template>
   <div>
-      <ul>
-        <li v-for="(todoItem, index) in propsdata" v-bind:key="todoItem.item" class="shadow">
-          <span class="checkBtn" v-on:click="toggleComplete(todoItem, index)">
-            <i class="fas fa-check" v-bind:class="{checkBtnCompleted: todoItem.completed}"></i>
-          </span>
-          <span v-bind:class="{textCompleted: todoItem.completed}">{{todoItem.item}}</span>
-          <!-- <button v-on:click="removeTodo" >delete</button> -->
-          <span class="removeBtn" v-on:click="removeTodo(todoItem, index)">
-            <i class="fas fa-trash-alt"></i>
-          </span>
-        </li>
-      </ul>
+    <transition-group name="list" tag="ul">
+      <li v-for="(todoItem, index) in propsdata" v-bind:key="todoItem.item" class="shadow">
+        <span class="checkBtn" v-on:click="toggleComplete(todoItem, index)">
+          <i class="fas fa-check" v-bind:class="{checkBtnCompleted: todoItem.completed}"></i>
+        </span>
+        <span v-bind:class="{textCompleted: todoItem.completed}">{{todoItem.item}}</span>
+        <!-- <button v-on:click="removeTodo" >delete</button> -->
+        <span class="removeBtn" v-on:click="removeTodo(todoItem, index)">
+          <i class="fas fa-trash-alt"></i>
+        </span>
+      </li>
+    </transition-group>
   </div>
 </template>
 
@@ -76,5 +76,12 @@ li {
   text-decoration: line-through;
   color: #b3adad;
 }
-
+/* 리스트 아이템 트랜지션 효과 */
+.list-enter-active, .list-leave-active {
+  transition: all 1s;
+}
+.list-enter, .list-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
 </style>
