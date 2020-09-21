@@ -17,27 +17,14 @@
 
 <script>
 export default { 
-  props: ['propsdata'],
-  // data: function() {
-  //   return {
-  //     todoItems:[]
-  //   }
-  // },
-  // created: function() {
-  //   if(localStorage.length > 0) {
-  //     for(var i = 0; i < localStorage.length; i++) {
-  //       if(localStorage.key(i) !== 'loglevel:webpack-dev-server') {
-  //         this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))));          
-  //       }
-  //     }
-  //   }
-  // },
   methods: {
     removeTodo(todoItem, index) {
-      this.$emit('removeItem', todoItem, index);
+      // this.$emit('removeItem', todoItem, index);
+      this.$store.commit('removeOneItem', { todoItem:todoItem, index:index });
     },
     toggleComplete(todoItem, index) {
-      this.$emit('toggleItem', todoItem, index);
+      // this.$emit('toggleItem', todoItem, index);
+      this.$store.commit('toggleOneItem', { todoItem:todoItem, index:index });
     }
   }
 }
