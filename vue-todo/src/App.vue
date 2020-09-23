@@ -2,10 +2,7 @@
   <div id="app">
     <TodoHeader></TodoHeader>
     <TodoInput></TodoInput>
-    <TodoList 
-      v-bind:propsdata="todoItems" 
-    >
-    </TodoList>
+    <TodoList></TodoList>
     <TodoFooter></TodoFooter>
   </div>
 </template>
@@ -21,31 +18,6 @@ var my_cmp = {
 };
 
 export default {
-  data() {
-    return {
-      todoItems:[]
-    }
-  },
-  methods: {
-    // addOneItem(todoItem) {  
-    //   const obj = { completed: false, item: todoItem };
-    //   localStorage.setItem(todoItem, JSON.stringify(obj));
-    //   this.todoItems.push(obj);
-    // },
-    // removeOneItem(todoItem, index) {
-    //   localStorage.removeItem(todoItem.item);
-    //   this.todoItems.splice(index, 1);
-    // },
-    // toggleOneItem(todoItem, index) {
-    //   this.todoItems[index].completed = !this.todoItems[index].completed;
-    //   localStorage.removeItem(todoItem.item);
-    //   localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
-    // },
-    // clearAllItems() {
-    //   localStorage.clear();
-    //   this.todoItems=[];
-    // }
-  },
   components: {
     TodoHeader,
     TodoInput,
