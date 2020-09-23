@@ -12,7 +12,7 @@ const storage = {
   }
 }
 
-const state = () => {
+const state = {
   todoItems: storage.fetch()
 };
 
